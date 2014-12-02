@@ -3,18 +3,22 @@ Miscellaneous
 
 This is a repository aiming at providing various useful (to me) pieces of soft.
 
-./C:
-pcap_sniff.c: a simple sniffer
+#./C:#
 
-./Ikare:
-getVuln.py: a simple python script that lets you retrieve scanned vulnerabilities through Ikare's API
+  pcap_sniff.c: a simple sniffer
 
-./python:
-gorgeousMail, sendMail.py: WIP
+#./Ikare:#
 
-./servers:
-setupNodejs.sh: a simple bash script letting you one-click-install a rocking node-express-jade environment - WIP
+  getVuln.py: a simple python script that lets you retrieve scanned vulnerabilities through Ikare's API
 
-### Charles Ibrahim - @Ibrahimous ###
+#./python:#
+
+  gorgeousMail, sendMail.py: WIP
+
+#./servers:#
+
+  setupNodejs.sh: a simple bash script letting you one-click-install a rocking node-express-jade environment - WIP
+
+Charles Ibrahim - @Ibrahimous
 
 
