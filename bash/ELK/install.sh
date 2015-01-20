@@ -15,7 +15,7 @@ sudo apt-get update && sudo aptitude install elasticsearch -ry
 #sudo update-rc.d elasticsearch defaults 95 10
 
 #Démarrer le service
-sudo service elasticsearch start
+sudo /etc/init.d/elasticsearch start
 
 #### Logstash ####
 
