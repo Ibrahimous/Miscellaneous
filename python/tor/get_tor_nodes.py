@@ -5,6 +5,11 @@
 
 import requests, re, ConfigParser, sys
 
+proxies = {
+  "http": "http://splunkad:2S-chapelle@proxytmg.serv.cdc.fr:8085",
+  "https": "http://splunkad:2S-chapelle@proxytmg.serv.cdc.fr:8085",
+}
+
 def printErr(err, str):
 	"""Commodity function to display errors while fetching things"""
 
@@ -19,7 +24,7 @@ def get_url(url, bssl):
 
 	print "Issuing get request to:", url
 	try:
-		r = requests.get(url, verify=bssl)
+		r = requests.get(url, verify=bssl, proxies=proxies)
 		print "Get request successful"
 		req_status = r.status_code
 		if req_status == 200:
@@ -79,7 +84,7 @@ if __name__ == '__main__':
 	rep_serv = "https://www.dan.me.uk/torlist"
 	#rev = get_remote_rep_rev(rep_serv, False)
 	data = download_reputation_database(rep_serv, False)
-	feedsFile = "torNodes"
+	feedsFile = "tor_nodes"
 	with open(feedsFile, 'w+') as f:
 		f.write(data)
 		print "Data written successfully to:", feedsFile
