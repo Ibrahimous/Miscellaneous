@@ -6,8 +6,7 @@
 import requests, re, ConfigParser, sys
 
 proxies = {
-  "http": "http://splunkad:2S-chapelle@proxytmg.serv.cdc.fr:8085",
-  "https": "http://splunkad:2S-chapelle@proxytmg.serv.cdc.fr:8085",
+  "your proxies",
 }
 
 def printErr(err, str):
@@ -24,7 +23,8 @@ def get_url(url, bssl):
 
 	print "Issuing get request to:", url
 	try:
-		r = requests.get(url, verify=bssl, proxies=proxies)
+		r = requests.get(url, verify=bssl)
+		#OR r = requests.get(url, verify=bssl, proxies=proxies)
 		print "Get request successful"
 		req_status = r.status_code
 		if req_status == 200:
