@@ -19,7 +19,7 @@ msg = MIMEText(fp.read())
 fp.close()
 
 # me == the sender's email address
-me = "c.ibrahim@amesys.fr"
+me = "cibrahim@organisation.fr"
 # you == the recipient's email address
 msg['Subject'] = 'The contents of %s' % textfile
 msg['From'] = me

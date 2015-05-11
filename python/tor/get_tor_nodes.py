@@ -6,7 +6,8 @@
 import requests, re, ConfigParser, sys
 
 proxies = {
-  "your proxies",
+  "http": "http://<login>:<password>@<yourdomain>:<port>",
+  "https": "http://<login>:<password>@<yourdomain>:<port>",
 }
 
 def printErr(err, str):
