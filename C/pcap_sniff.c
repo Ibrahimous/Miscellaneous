@@ -11,15 +11,19 @@
 #define ADDRESS_SIZE 15
 #define DEVICE_SIZE 30
 
+//void fatal()
+
 int main(int argc, char const *argv[])
 {
 	/*char dev[DEVICE_SIZE]; //Name of the device to use
 	char net[ADDRESS_SIZE]; //Dot notation of the network
 	char mask[ADDRESS_SIZE]; //OK*/
-	/*struct pcap_pkthdr header;
-	const u_char* packet;*/
-	//pcap_t* pcap_handle = (pcap_t*)malloc(sizeof(struct pcap_t));
-	//int i = 0;
+	
+	struct pcap_pkthdr header;
+	
+	const u_char* packet;
+	pcap_t *pcap_handle; //= (pcap_t*)malloc(sizeof(struct pcap_t));
+	
 	char* dev = "";
 	char* net = ""; //Dot notation of the network
 	char* mask = "";
@@ -39,13 +43,15 @@ int main(int argc, char const *argv[])
 		printf("DEV: %s\n", dev);
 	}
 
-	//pcap_open_live(char *device, int snaplen, int promisc, int to_ms, char *errbuf)
-	//to_ms <-> temporization value
-	//returns a pcap_t * on success and NULL on failure
 	/*
+	pcap_open_live(char *device, int snaplen, int promisc, int to_ms, char *errbuf)
+	to_ms <-> temporization value
+	returns a pcap_t * on success and NULL on failure
+	*/
+	
 	if((pcap_handle = pcap_open_live(dev, 4096, 1, 0, errbuf)) == NULL) fatal(errbuf);
 	else {
-		//	printf("Opened packet capture device: %s\n", );
+		//printf("Opened packet capture device: %s\n", );
 		int i = 0;
 		for (i = 0; i < 3; i++)
 		{
@@ -55,7 +61,6 @@ int main(int argc, char const *argv[])
 		}
 		pcap_close(pcap_handle);
 	}
-	*/
 
 	//ask pcap for the network address & mask of the device
 	if((r = pcap_lookupnet(dev, &netp, &maskp, errbuf)) == -1) {printf("r==-1\n"); fatal(errbuf);}
