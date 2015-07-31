@@ -1,0 +1,26 @@
+Download from: http://developer.android.com/sdk/index.html#Other
+
+cd /usr/local/bin/
+sudo ln -s /home/charlou/android-sdk-linux/tools/android android
+
+/!\ En cas d'erreur :
+charlou@debian:~/android-sdk-linux/platform-tools$ ./adb 
+bash: ./adb: Aucun fichier ou dossier de ce type
+
+=>
+
+sudo aptitude install ia32-libs lib32ncurses5 lib32stdc++6
+
+Et là pouf :
+
+charlou@debian:~/android-sdk-linux/platform-tools$ ./adb devices
+* daemon not running. starting it now on port 5037 *
+* daemon started successfully *
+List of devices attached 
+
+=> NE PAS oublier d'activer le mode débogage !
+http://developer.android.com/tools/help/adb.html
+> Paramètres > Applications > ... dépend du smartphone
+
+Pour voir le port sur lequel écoute ADB :
+$ netstat -paunt | grep adb
