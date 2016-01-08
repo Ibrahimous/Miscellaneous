@@ -13,7 +13,7 @@
 
 //void fatal()
 
-int main(int argc, char const *argv[])
+int main(void)
 {
 	/*char dev[DEVICE_SIZE]; //Name of the device to use
 	char net[ADDRESS_SIZE]; //Dot notation of the network
