@@ -23,10 +23,9 @@ func log_fatal(err error) {
 func main() {
 
 	//Get Alexa top 1M sites
-    /*fileUrl := "http://s3.amazonaws.com/alexa-static/top-1m.csv.zip"
+    fileUrl := "http://s3.amazonaws.com/alexa-static/top-1m.csv.zip"
     err := DownloadFile("top-1m.csv.zip", fileUrl)
     log_fatal(err)
-    */
 
     //Unzip that file to the output directory
     files, err := Unzip("top-1m.csv.zip", "output")
