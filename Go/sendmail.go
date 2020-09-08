@@ -92,40 +92,31 @@ func main() {
                 log.Fatalf("Unable to retrieve Gmail client: %v", err)
         }
 
-        /*
-        user := "me"
-        r, err := srv.Users.Labels.List(user).Do()
-        if err != nil {
-                log.Fatalf("Unable to retrieve labels: %v", err)
-        }
-        if len(r.Labels) == 0 {
-                fmt.Println("No labels found.")
-                return
-        }
-        fmt.Println("Labels:")
-        for _, l := range r.Labels {
-                fmt.Printf("- %s\n", l.Name)
-        }
-        */
-
         // New message for our gmail service to send
         var message gmail.Message
 
-        // Compose the message
-        messageStr := []byte(
-                "From: xxxgmail.com\r\n" +
-                "To: xxx@hotmail.fr\r\n" +
-                "Subject: My first Gmail API message\r\n\r\n" +
-                "Message body goes here!")
+        usersList := []string{"rachid", "momo"}
 
-        // Place messageStr into message.Raw in base64 encoded format
-        message.Raw = base64.URLEncoding.EncodeToString(messageStr)
+        for i, u := range usersList {
 
-        // Send the message
-        _, err = srv.Users.Messages.Send("me", &message).Do()
-        if err != nil {
-                log.Printf("Error: %v", err)
-        } else {
-                fmt.Println("Message sent!")
-        }
+                fmt.Printf("Sending to user %i\r\n", i)
+
+                // Compose the message
+                messageStr := []byte(
+                        "From: <your mail here>\r\n" +
+                        "To: "+u+"@<yourTargetCorporationHere>\r\n" +
+                        "Subject: My third Gmail API message\r\n\r\n" +
+                        "yourBodyHere")
+
+                // Place messageStr into message.Raw in base64 encoded format
+                message.Raw = base64.URLEncoding.EncodeToString(messageStr)
+
+                // Send the message
+                _, err = srv.Users.Messages.Send("me", &message).Do()
+                if err != nil {
+                        log.Printf("Error: %v", err)
+                } else {
+                        fmt.Printf("Message to %s sent!\r\n", u)
+               }
+       }
 }
