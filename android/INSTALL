@@ -1,0 +1,39 @@
+Download from: http://developer.android.com/sdk/index.html#Other
+
+cd /usr/local/bin/
+sudo ln -s /home/charlou/android-sdk-linux/tools/android android
+
+/!\ En cas d'erreur :
+charlou@debian:~/android-sdk-linux/platform-tools$ ./adb 
+bash: ./adb: Aucun fichier ou dossier de ce type
+
+=>
+
+sudo aptitude install ia32-libs lib32ncurses5 lib32stdc++6
+
+Et là pouf :
+
+charlou@debian:~/android-sdk-linux/platform-tools$ ./adb devices
+* daemon not running. starting it now on port 5037 *
+* daemon started successfully *
+List of devices attached 
+
+=> NE PAS oublier d'activer le mode débogage !
+http://developer.android.com/tools/help/adb.html
+> Paramètres > Applications > ... dépend du smartphone
+
+OU
+
+Valable sur SUnset 2 - Android 4.4.2
+Pour devenir développeur, appuyer 6 ou 7 fois sur Numéro de Build (dans paramètres, à propos du téléphone)
+http://www.mensquare.com/high-tech/smartphone/tutoriel-comment-activer-le-debogage-usb-sous-android-4-2-et-plus
+
+Pour voir le port sur lequel écoute ADB :
+$ netstat -paunt | grep adb
+
+
+AVEC MTP (Android >= 4.0), pour accéder au répertoire en ligne de commande :
+charlou@debian:/run/user/1000/gvfs/mtp:host=%5Busb%3A003%2C004%5D$ ls
+Stockage téléphone
+
+cf : http://askubuntu.com/questions/342319/where-are-mtp-mounted-devices-located-in-the-filesystem
