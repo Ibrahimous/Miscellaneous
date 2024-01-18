@@ -11,14 +11,24 @@ import (
 	"github.com/Ibrahimous/Miscellaneous/tree/master/Go/GraphQL_projects/graph/model"
 )
 
-// CreateTodo is the resolver for the createTodo field.
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: CreateTodo - createTodo"))
+// UpsertCharacter is the resolver for the upsertCharacter field.
+func (r *mutationResolver) UpsertCharacter(ctx context.Context, input model.CharacterInput) (*model.Character, error) {
+	panic(fmt.Errorf("not implemented: UpsertCharacter - upsertCharacter"))
 }
 
-// Todos is the resolver for the todos field.
-func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: Todos - todos"))
+// Character is the resolver for the character field.
+func (r *queryResolver) Character(ctx context.Context, id string) (*model.Character, error) {
+	panic(fmt.Errorf("not implemented: Character - character"))
+}
+
+// Pogues is the resolver for the pogues field.
+func (r *queryResolver) Pogues(ctx context.Context) ([]*model.Character, error) {
+	panic(fmt.Errorf("not implemented: Pogues - pogues"))
+}
+
+// Kooks is the resolver for the kooks field.
+func (r *queryResolver) Kooks(ctx context.Context) ([]*model.Character, error) {
+	panic(fmt.Errorf("not implemented: Kooks - kooks"))
 }
 
 // Mutation returns MutationResolver implementation.

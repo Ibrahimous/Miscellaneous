@@ -25,5 +25,4 @@ GraphQL Concepts Visualized - GraphQL is often explained as a "unified interface
 
 #TODO
 
-$ go mod tidy
-go: go.mod file not found in current directory or any parent directory; see 'go help modules'
+https://www.apollographql.com/blog/using-graphql-with-golang#defining-mutations
