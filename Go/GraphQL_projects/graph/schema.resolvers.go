@@ -7,18 +7,45 @@ package graph
 import (
 	"context"
 	"fmt"
+	"strconv"
 
 	"github.com/Ibrahimous/Miscellaneous/tree/master/Go/GraphQL_projects/graph/model"
 )
 
 // UpsertCharacter is the resolver for the upsertCharacter field.
 func (r *mutationResolver) UpsertCharacter(ctx context.Context, input model.CharacterInput) (*model.Character, error) {
-	panic(fmt.Errorf("not implemented: UpsertCharacter - upsertCharacter"))
+	id := input.ID
+	var character model.Character
+	character.Name = input.Name
+
+	n := len(r.Resolver.CharacterStore)
+	if n == 0 {
+		r.Resolver.CharacterStore = make(map[string]model.Character)
+	}
+
+	if id != nil {
+		_, ok := r.Resolver.CharacterStore[*id]
+		if !ok {
+			return nil, fmt.Errorf("not found")
+		}
+		r.Resolver.CharacterStore[*id] = character
+	} else {
+		// generate unique id
+		nid := strconv.Itoa(n + 1)
+		character.ID = nid
+		r.Resolver.CharacterStore[nid] = character
+	}
+
+	return &character, nil
 }
 
 // Character is the resolver for the character field.
 func (r *queryResolver) Character(ctx context.Context, id string) (*model.Character, error) {
-	panic(fmt.Errorf("not implemented: Character - character"))
+	character, ok := r.Resolver.CharacterStore[id]
+	if !ok {
+		return nil, fmt.Errorf("not found")
+	}
+	return &character, nil
 }
 
 // Pogues is the resolver for the pogues field.

@@ -25,4 +25,13 @@ GraphQL Concepts Visualized - GraphQL is often explained as a "unified interface
 
 #TODO
 
-https://www.apollographql.com/blog/using-graphql-with-golang#defining-mutations
+
+
+https://www.apollographql.com/blog/using-graphql-with-golang#defining-the-backend-to-fetch-and-store-values
+
+Quick explanations:
+In server.go, the following line:
+	`srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))`
+1. Use the handler's `NewDefaultServer` function defined (here)[https://github.com/99designs/gqlgen/blob/master/graphql/handler/server.go]
+2. ... to run the `NewExecutableSchema` function defined on your local BUT auto-generated `generated.go`
+3. ... with config graph.Config{Resolvers: &graph.Resolver{}} - where is &graph.Resolver{} = an actual instance of ResolverRoot????
