@@ -10,10 +10,6 @@ are installed in $GOROOT/bin or $GOTOOLDIR instead of $GOBIN.
 
 ...
 
-#ALIRE
-For more about build flags, see 'go help build'.
-For more about specifying packages, see 'go help packages'.
-See also: go build, go get, go clean.
 
 https://the-guild.dev/blog/graphql-deep-dive-1
 ->
@@ -25,8 +21,6 @@ GraphQL Concepts Visualized - GraphQL is often explained as a "unified interface
 
 #TODO
 
-
-
 https://www.apollographql.com/blog/using-graphql-with-golang#defining-the-backend-to-fetch-and-store-values
 
 Quick explanations:
@@ -35,3 +29,13 @@ In server.go, the following line:
 1. Use the handler's `NewDefaultServer` function defined (here)[https://github.com/99designs/gqlgen/blob/master/graphql/handler/server.go]
 2. ... to run the `NewExecutableSchema` function defined on your local BUT auto-generated `generated.go`
 3. ... with config graph.Config{Resolvers: &graph.Resolver{}} - where is &graph.Resolver{} = an actual instance of ResolverRoot????
+
+
+#ALIRE
+For more about build flags, see 'go help build'.
+For more about specifying packages, see 'go help packages'.
+See also: go build, go get, go clean.
+
+------------------
+
+https://www.apollographql.com/docs/apollo-server/schema/schema
