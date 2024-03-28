@@ -39,3 +39,4 @@ See also: go build, go get, go clean.
 ------------------
 
 https://www.apollographql.com/docs/apollo-server/schema/schema
+https://ivan-corrales-solera.medium.com/dive-into-graphql-9bfedf22e1a

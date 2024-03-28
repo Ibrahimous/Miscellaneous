@@ -41,3 +41,9 @@ https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/s
   412  sam deploy --guided
   414  sam deploy --guided
   415  history | grep sam
+
+  sam list endpoints --output json
+  sam remote invoke HelloWorldFunction --stack-name sam-app
+
+  sudo sam local invoke
+  sudo sam local start-api
