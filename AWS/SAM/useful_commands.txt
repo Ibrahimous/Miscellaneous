@@ -1,0 +1,49 @@
+#Important notes
+
+A different default S3 bucket can be set in samconfig.toml and auto resolution of buckets turned off by setting resolve_s3=False
+  
+Parameter "stack_name=sam-app" in [default.deploy.parameters] is defined as a global parameter [default.global.parameters].       
+This parameter will be only saved under [default.global.parameters] in $HOME/DEV/AWS/sam_hello_world/sam-app/samconfig.toml.      
+
+Saved arguments to config file
+Running 'sam deploy' for future deployments will use the parameters saved above.
+The above parameters can be changed by modifying samconfig.toml
+Learn more about samconfig.toml syntax at 
+https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+
+#Commands
+
+  381  mkdir sam_hello_world
+  382  cd sam_hello_world/
+  383  sam init
+  384  wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-arm64.zip
+  385  mv aws-sam-cli-linux-arm64.zip ..
+  387  unzip aws-sam-cli-linux-arm64.zip -d sam-installation
+  388  sudo ./sam-installation/install 
+  389  cd sam_hello_world/
+  390  sam init
+  391  sam --version
+  393  rm -rf sam-installation/
+  394  unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
+  395  wget https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+  396  unzip aws-sam-cli-linux-x86_64.zip -d sam-installation
+  397  sudo ./sam-installation/install 
+  398  sudo ./sam-installation/install --update
+  399  cd sam_hello_world/
+  400  sam init
+  401  cd sam-app/ && sam pipeline init --bootstrap
+  402  sam pipeline init --bootstrap
+  404  sam build
+  408  sam build
+  409  sam build --help
+  410  sam validate
+  411  sam validate --help
+  412  sam deploy --guided
+  414  sam deploy --guided
+  415  history | grep sam
+
+  sam list endpoints --output json
+  sam remote invoke HelloWorldFunction --stack-name sam-app
+
+  sudo sam local invoke
+  sudo sam local start-api
