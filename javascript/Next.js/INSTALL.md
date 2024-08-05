@@ -1,4 +1,4 @@
-# Referenc
+# Reference
 
 https://www.mongodb.com/developer/languages/javascript/nextjs-with-mongodb/
 
